@@ -23,7 +23,7 @@ if($_SESSION['name']==''){
     <!----===== Iconscout CSS ===== -->
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
 
-    <title>Admin Dashboard Panel</title> 
+    <title>Charity Dashboard Panel</title> 
     
 <?php
  $connection=mysqli_connect("localhost:3306","root","");
@@ -40,7 +40,7 @@ if($_SESSION['name']==''){
                 <!--<img src="images/logo.png" alt="">-->
             </div>
 
-            <span class="logo_name">ADMIN</span>
+            <span class="logo_name">Charity</span>
         </div>
 
         <div class="menu-items">
@@ -100,7 +100,7 @@ if($_SESSION['name']==''){
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
             <!-- <p>Food Donate</p> -->
-            <p  class ="logo" >Food <b style="color: #06C167; ">Donate</b></p>
+            <p  class ="logo" >Table<b style="color: #3d550c; ">Together</b></p>
              <p class="user"></p>
             <!-- <div class="search-box">
                 <i class="uil uil-search"></i>
@@ -252,7 +252,7 @@ if (isset($_POST['food']) && isset($_POST['delivery_person_id'])) {
                     <form method="post" action=" ">
                         <input type="hidden" name="order_id" value="<?= $row['Fid'] ?>">
                         <input type="hidden" name="delivery_person_id" value="<?= $id ?>">
-                        <button type="submit" name="food">Get Food</button>
+                        <button type="submit" style="background-color:#3d550c" name="food">Get Food</button>
                     </form>
                 <?php } else if ($row['assigned_to'] == $id) { ?>
                     Order assigned to you

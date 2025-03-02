@@ -83,7 +83,7 @@ if (isset($_POST['sign'])) {
   </head>
   <body>
     <div class="center">
-      <h1>Delivery Login</h1>
+      <h1 style="color:#3d550c" >Delivery Login</h1>
       <form method="post">
         <div class="txt_field">
           <input type="email" name="email" required/>
@@ -104,9 +104,9 @@ if (isset($_POST['sign'])) {
                     ?>
                     <br>
         <!-- <div class="pass">Forgot Password?</div> -->
-        <input type="submit" value="Login" name="sign">
+        <input type="submit" style="background-color:#3d550c" value="Login" name="sign">
         <div class="signup_link">
-          Not a member? <a href="deliverysignup.php">Signup</a>
+          Not a member? <a href="deliverysignup.php" style="color:#3d550c" >Signup</a>
         </div>
       </form>
     </div>

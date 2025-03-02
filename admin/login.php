@@ -103,7 +103,7 @@ if(isset($_POST['signup']))
                     </div> -->
 
                     <div class="input-field button">
-                        <button type="submit" name="Login">Login</button>
+                        <button type="submit" style="background-color: #3d550c" name="Login">Login</button>
                         <!-- <input type="button" value="Login" name="Login"> -->
                     </div>
                 </form>

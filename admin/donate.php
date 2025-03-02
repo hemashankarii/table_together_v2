@@ -100,7 +100,7 @@ if($_SESSION['name']==''){
         <div class="top">
             <i class="uil uil-bars sidebar-toggle"></i>
             <!-- <p>Food Donate</p> -->
-            <p  class ="logo" >Food <b style="color: #06C167; ">Donate</b></p>
+            <p  class ="logo" >Table<b style="color: #3d550c; ">Together</b></p>
              <p class="user"></p>
             <!-- <div class="search-box">
                 <i class="uil uil-search"></i>
@@ -128,7 +128,7 @@ if($_SESSION['name']==''){
                <option value="coimbatore">coimbatore</option>
         
             </select>
-                <input type="submit" value="Get Details">
+                <input type="submit"  style="background-color: #3d550c" value="Get Details">
          </form>
          <br>
 

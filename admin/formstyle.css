@@ -2,8 +2,8 @@
 
 
 body{
-    background:#06C167;
-    /* background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(121,32,153,1) 86%); */
+    background: linear-gradient(135deg, #f7f8fc, #e0f7fa);;
+    /* background: linear-gradient(0deg, rgb(123, 241, 168) 0%, rgb(217, 233, 149) 86%); */
     background-attachment: fixed;
     margin:0;
     font-family: 'Poppins', sans-serif; 

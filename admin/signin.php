@@ -125,7 +125,7 @@ if (isset($_POST['sign'])) {
                 <div class="error"></div>
             </div> -->
          
-            <button type="submit" name="sign">Login</button>
+            <button type="submit" style="background-color: #3d550c" name="sign">Login</button>
             <div class="login-signup" >
                     <span class="text">Don't have an account?
                         <a href="signup.php" class="text login-link">Register</a>

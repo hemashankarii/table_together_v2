@@ -57,7 +57,7 @@ if(isset($_POST['submit']))
     <div class="container">
         <div class="regformf">
             <form action="" method="post">
-                <p class="logo">Food <b style="color: #06C167;">Donate</b></p>
+                <p class="logo">Table <b style="color: #3d550c;">Together</b></p>
                 <div class="input">
                     <label for="foodname">Food Name:</label>
                     <input type="text" id="foodname" name="foodname" required/>
@@ -107,7 +107,7 @@ if(isset($_POST['submit']))
                 </div>
                 <input type="hidden" id="latlon" name="latlon">
                 <div class="btn">
-                    <button type="submit" name="submit">Submit</button>
+                    <button style="Background-color:#3d550c" type="submit" name="submit">Submit</button>
                 </div>
             </form>
         </div>

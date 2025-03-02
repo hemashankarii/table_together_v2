@@ -21,7 +21,8 @@ if(isset($_POST['sign'])) {
         if ($query_run) {
             header("location:signin.php");
         } else {
-            echo '<script type="text/javascript">alert("Data not saved")</script>';
+            echo '<script type="text/javascript">alert("Data not saved") </script>';
+            echo $query_run;
         }
     }
 }
@@ -33,7 +34,7 @@ if(isset($_POST['sign'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="formstyle.css">
-    <script src="signin.js" defer></script>
+    <!-- <script src="signin.js" defer></script> -->
     <title>Register</title>
     <script>
         function getLocation() {
@@ -103,7 +104,7 @@ if(isset($_POST['sign'])) {
                 </select>
             </div>
             <input type="hidden" id="latlon" name="latlon">
-            <button type="submit" name="sign">Register</button>
+            <button type="submit" style="background-color: #3d550c" name="sign">Register</button>
             <div class="login-signup">
                 <span class="text">Already a member?
                     <a href="signin.php" class="text login-link">Login Now</a>

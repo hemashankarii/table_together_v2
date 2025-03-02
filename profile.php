@@ -26,7 +26,7 @@ if($_SESSION['name']==''){
 </head>
 <body>
 <header>
-        <div class="logo">Food <b style="color: #06C167;">Donate</b></div>
+        <div class="logo">Table <b style="color: #3d550c;">Together</b></div>
         <div class="hamburger">
             <div class="line"></div>
             <div class="line"></div>
@@ -82,7 +82,7 @@ if($_SESSION['name']==''){
               <p style="">Gender:<?php echo"". $_SESSION['gender'] ;?> </p><br>
                <!-- <p style="font-family: 'Times New Roman', Times, serif;">gender  :<?php echo"". $_SESSION['gender'] ;?> </p><br>  -->
               
-              <a href="logout.php" style="float: left;margin-top: 6px ;border-radius:5px; background-color: #06C167; color: white;padding: ;padding-left: 10px;padding-right: 10px;">Logout</a>
+              <a href="logout.php" style="float: left;margin-top: 6px ;border-radius:5px; background-color: #3d550c; color: white;padding: 10px;">Logout</a>
               </div>
               <br>
               <br>

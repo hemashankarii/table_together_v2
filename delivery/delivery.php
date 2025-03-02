@@ -38,7 +38,7 @@ $id=$_SESSION['Did'];
 </head>
 <body>
 <header>
-        <div class="logo">Food <b style="color: #06C167;">Donate</b></div>
+        <div class="logo">Table<b style="color: #3d550c;">Together</b></div>
         <div class="hamburger">
             <div class="line"></div>
             <div class="line"></div>
@@ -46,10 +46,10 @@ $id=$_SESSION['Did'];
         </div>
         <nav class="nav-bar">
             <ul>
-                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#home" class="active" >Home</a></li>
                 <!-- <li><a href="openmap.php" >map</a></li> -->
-                <li><a href="deliverymyord.php" >myorders</a></li>
-                <!-- <li ><a href="../logout.php"  >Logout</a></li> -->
+                <li><a href="deliverymyord.php" style="background-color:#3d550c" z>myorders</a></li>
+                <li ><a href="../logout.php" style="background-color:#3d550c"   >Logout</a></li>
             </ul>
         </nav>
     </header>
@@ -101,7 +101,7 @@ $id=$_SESSION['Did'];
 
         <div class="itm" >
 
-            <img src="../img/delivery.gif" alt="" width="400" height="400"> 
+            <img src="../img/deliveryboy.gif" alt="" width="400" height="400"> 
           
         </div>
         <!-- <h2><center>your Location : <?php echo"$city" ?></center></h2> -->
@@ -164,8 +164,8 @@ if (isset($_POST['food']) && isset($_POST['delivery_person_id'])) {
 
 ?>
 <div class="log">
-<!-- <button type="submit" name="food" onclick="">My orders</button> -->
-<a href="deliverymyord.php">My orders</a>
+<!-- <button type="submit" name="food" onclick="" >My orders</button> -->
+<a href="deliverymyord.php" style="background-color:#3d550c" >My orders</a>
 
 </div>
   
@@ -204,7 +204,7 @@ if (isset($_POST['food']) && isset($_POST['delivery_person_id'])) {
                     <form method="post" action=" ">
                         <input type="hidden" name="order_id" value="<?= $row['Fid'] ?>">
                         <input type="hidden" name="delivery_person_id" value="<?= $id ?>">
-                        <button type="submit" name="food">Take order</button>
+                        <button type="submit" name="food" style="background-color:#3d550c" >Take order</button>
                     </form>
                 <?php } else if ($row['delivery_by'] == $id) { ?>
                     Order assigned to you

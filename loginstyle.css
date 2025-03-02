@@ -6,13 +6,16 @@ body{
     background-image: url("");
 
     /* font-family: 'Open Sans', sans-serif; */
-    background-color: #06C167;
+    background: linear-gradient(135deg, #f7f8fc, #e0f7fa);
      /* outline: none; */
   font-family: 'Poppins', sans-serif;
 
 
     
 
+}
+html{
+  /* background-color: #3d550c; */
 }
 .logo{
     text-align: center;

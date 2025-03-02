@@ -64,9 +64,9 @@ if(isset($_POST['sign']))
     <title>Animated Login Form | CodingNepal</title>
     <link rel="stylesheet" href="deliverycss.css">
   </head>
-  <body>
+  <body >
     <div class="center">
-      <h1>Register</h1>
+      <h1 style="color: #3d550c">Register</h1>
       <form method="post" action=" ">
         <div class="txt_field">
           <input type="text" name="username" required/>
@@ -118,9 +118,9 @@ if(isset($_POST['sign']))
           </div>
           <br>
         <!-- <div class="pass">Forgot Password?</div> -->
-        <input type="submit" name="sign" value="Register">
+        <input type="submit" style="background-color: #3d550c" name="sign" value="Register"  >
         <div class="signup_link">
-          Alredy a member? <a href="deliverylogin.php">Sigin</a>
+          Alredy a member? <a href="deliverylogin.php" style="color:#3d550c" >Sigin</a>
         </div>
       </form>
     </div>

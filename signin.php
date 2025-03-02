@@ -62,7 +62,7 @@ if (isset($_POST['sign'])) {
 
             <form action=" " method="post">
 
-                <p class="logo" style="">Food <b style="color:#06C167; ">Donate</b></p>
+                <p class="logo" style="">Table <b style="color: #3d550c; ">Together</b></p>
                 <p id="heading" style="padding-left: 1px;"> Welcome back ! <img src="" alt=""> </p>
 
                 <div class="input">
@@ -85,10 +85,10 @@ if (isset($_POST['sign'])) {
 
 
                 <div class="btn">
-                    <button type="submit" name="sign"> Sign in</button>
+                    <button style="background-color: #3d550c;" type="submit" name="sign"> Sign in</button>
                 </div>
                 <div class="signin-up">
-                    <p id="signin-up">Don't have an account? <a href="signup.php">Register</a></p>
+                    <p id="signin-up">Don't have an account? <a style="color: #3d550c;" href="signup.php">Register</a></p>
                 </div>
             </form>
         </div>

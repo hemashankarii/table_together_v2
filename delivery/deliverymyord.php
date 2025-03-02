@@ -30,7 +30,7 @@ if (isset($_POST['delivered'])) {
 </head>
 <body>
 <header>
-        <div class="logo">Food <b style="color: #06C167;">Donate</b></div>
+        <div class="logo">Table <b style="color: #3d550c;">Together</b></div>
         <div class="hamburger">
             <div class="line"></div>
             <div class="line"></div>
@@ -38,8 +38,10 @@ if (isset($_POST['delivered'])) {
         </div>
         <nav class="nav-bar">
             <ul>
-                <li><a href="delivery.php" >Home</a></li>
-                <li><a href="deliverymyord.php"  class="active">myorders</a></li>
+                <li><a href="delivery.php" style="background-color:#3d550c;color:white" >Home</a></li>
+                <li><a href="deliverymyord.php"  class="active"  >myorders</a></li>
+                <li ><a href="../logout.php" style="background-color:#3d550c;color:white"    >Logout</a></li>
+
             </ul>
         </nav>
     </header>
@@ -99,7 +101,7 @@ if (isset($_POST['delivered'])) {
         }
         ?>
         <div class="log">
-            <a href="delivery.php">Take orders</a>
+            <a href="delivery.php" style="background-color:#3d550c"   >Take orders</a>
             <p>Order assigned to you</p>
             <br>
         </div>
@@ -124,12 +126,12 @@ if (isset($_POST['delivered'])) {
                                 <td><?= $row['phoneno'] ?></td>
                                 <td><?= $row['date'] ?></td>
                                 <td>
-                                    <a href="https://www.google.com/maps?q=<?= $row['from_latlon'] ?>" target="_blank">
+                                    <a href="https://www.google.com/maps?q=<?= $row['from_latlon'] ?> " style="background-color:#3d550c"  target="_blank">
                                         <?= $row['From_address'] ?>
                                     </a>
                                 </td>
                                 <td>
-                                    <a href="https://www.google.com/maps?q=<?= $row['to_latlon'] ?>" target="_blank">
+                                    <a href="https://www.google.com/maps?q=<?= $row['to_latlon'] ?>" style="background-color:#3d550c"   target="_blank">
                                         <?= $row['To_address'] ?>
                                     </a>
                                 </td>
@@ -139,7 +141,7 @@ if (isset($_POST['delivered'])) {
                                     <?php } else { ?>
                                         <form method="post">
                                             <input type="hidden" name="order_id" value="<?= $row['Fid'] ?>">
-                                            <button type="submit" name="delivered">Delivered?</button>
+                                            <button type="submit" name="delivered" style="background-color:#3d550c"  >order delivered?</button>
                                         </form>
                                     <?php } ?>
                                 </td>
