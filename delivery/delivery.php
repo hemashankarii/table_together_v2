@@ -1,6 +1,6 @@
 <?php
 ob_start(); 
-// $connection = mysqli_connect("localhost:3307", "root", "");
+// $connection = mysqli_connect("localhost:3306", "root", "");
 // $db = mysqli_select_db($connection, 'demo');
 include("connect.php"); 
 include '../connection.php';
@@ -47,7 +47,7 @@ $id=$_SESSION['Did'];
         <nav class="nav-bar">
             <ul>
                 <li><a href="#home" class="active">Home</a></li>
-                <li><a href="openmap.php" >map</a></li>
+                <!-- <li><a href="openmap.php" >map</a></li> -->
                 <li><a href="deliverymyord.php" >myorders</a></li>
                 <!-- <li ><a href="../logout.php"  >Logout</a></li> -->
             </ul>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 include '../connection.php';
-// $connection = mysqli_connect("localhost:3307", "root", "");
+// $connection = mysqli_connect("localhost:3306", "root", "");
 // $db = mysqli_select_db($connection, 'demo');
 $msg=0;
 if (isset($_POST['sign'])) {

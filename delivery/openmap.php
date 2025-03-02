@@ -9,7 +9,7 @@
     integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
     crossorigin=""/>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script>
     <link rel="stylesheet" href="../home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css" />
     <!-- <link rel="stylesheet" href="delivery.css"> -->
@@ -189,8 +189,6 @@
 getVisitorLocation();
     </script>
     
-
-
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap"></script>
   </body>
 </html>

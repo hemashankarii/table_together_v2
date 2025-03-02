@@ -1,6 +1,6 @@
 <?php
 session_start();
-// $connection = mysqli_connect("localhost:3307", "root", "");
+// $connection = mysqli_connect("localhost:3306", "root", "");
 // $db = mysqli_select_db($connection, 'demo');
 include '../connection.php';
 $msg=0;
