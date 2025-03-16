@@ -1,0 +1,392 @@
+<?php
+session_start();
+include 'connection.php'; // Ensure your database connection file is correct
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['send'])) {
+    // Get form data
+    $email = $_POST['email'];
+    $name = $_POST['name'];
+    $msg = $_POST['message'];
+
+    // Use prepared statements to prevent SQL injection
+    $query = "INSERT INTO user_feedback (name, email, message) VALUES (?, ?, ?)";
+    $stmt = mysqli_prepare($connection, $query);
+
+    if ($stmt) {
+        // Bind parameters
+        mysqli_stmt_bind_param($stmt, "sss", $name, $email, $msg);
+        
+        // Execute the query
+        $query_run = mysqli_stmt_execute($stmt);
+
+        // Check if the query was successful
+        if ($query_run) {
+            $_SESSION['feedback_status'] = "Thank you for your feedback!";
+        } else {
+            $_SESSION['feedback_status'] = "Error saving feedback. Please try again.";
+        }
+        
+        // Close the prepared statement
+        mysqli_stmt_close($stmt);
+    } else {
+        $_SESSION['feedback_status'] = "Database error. Please contact support.";
+    }
+}
+?>
+
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="chatbot/chatbot.css">
+</head>
+<style>
+        :root {
+            --navcolor: white;
+            --navfont: black;
+            --green: #3d550c;
+            --box-shadow: 0 .5rem 1rem rgba(0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            text-decoration: none;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #fefefe;
+        }
+
+        header {
+            width: 100%;
+            height: 80px;
+            background-color: var(--navcolor);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 100px;
+            box-shadow: var(--box-shadow);
+        }
+
+        .logo {
+            font-size: 28px;
+            color: var(--navfont);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+
+        .hamburger .line {
+            width: 30px;
+            height: 3px;
+            background-color: var(--navfont);
+            margin: 6px 0;
+            transition: all 0.3s ease;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .nav-bar ul {
+            display: flex;
+        }
+
+        .nav-bar ul li a {
+            display: block;
+            color: var(--navfont);
+            font-size: 20px;
+            padding: 10px 25px;
+            border-radius: 50px;
+            transition: 0.2s;
+            margin: 0 5px;
+        }
+
+        .nav-bar ul li a:hover {
+            color: var(--navcolor);
+            background-color: var(--navfont);
+            border-radius: 50px;
+        }
+
+        .nav-bar ul li a.active {
+            color: var(--navcolor);
+            background-color: var(--navfont);
+        }
+
+        @media only screen and (max-width: 900px) {
+            .hamburger {
+                display: block;
+            }
+            .nav-bar {
+                height: 0;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                width: 100vw;
+                background-color: #3d550c;
+                transition: 0.2s;
+                overflow: hidden;
+            }
+            .nav-bar.active {
+                height: 450px;
+                z-index: 10;
+            }
+            .nav-bar ul {
+                display: block;
+                width: fit-content;
+                margin: 80px auto 0 auto;
+                text-align: center;
+                transition: 0.5s;
+                opacity: 0;
+            }
+            .nav-bar.active ul {
+                opacity: 1;
+            }
+            .nav-bar ul li a {
+                margin-bottom: 12px;
+            }
+        }
+
+        .cover {
+            width: 100%;
+            height: 400px;
+            background: url('../img/image.jpg') no-repeat;
+            background-size: cover;
+            display: grid;
+            place-items: center;
+            padding-top: 8rem;
+        }
+
+        .heading {
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .contact-form {
+            width: 50%;
+            margin: auto;
+            padding: 20px;
+            background-color: #f2f2f2;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .contact-form input[type="text"], .contact-form input[type="email"], .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        .contact-form input[type="submit"] {
+            background-color: #3d550c;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact-info {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .chatbot {
+            padding: 30px;
+            background-color: #ecf87f;
+            margin-top: 20px;
+        }
+
+        .help {
+            padding: 20px;
+        }
+
+        .accordion {
+            background-color: rgba(255, 255, 255, 0.856);
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 15px;
+            transition: 0.4s;
+        }
+
+        .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .accordion:after {
+            content: '\002B';
+            color: #777;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            /* content: "\2212"; */
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+
+        @media only screen and (max-width: 800px) {
+            .cover {
+                width: auto;
+                height: auto;
+                background: url('../img/image.jpg') no-repeat;
+                background-size: cover;
+                display: grid;
+                place-items: center;
+                padding-top: 8rem;
+            }
+
+            .contact-form {
+                width: 70%;
+                margin: auto;
+            }
+        }
+    </style>
+
+
+
+
+<body>
+    <header>
+        <div class="logo">Table <b style="color: #3d550c;">Together</b></div>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="nav-bar">
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.php" class="active">Contact</a></li>
+                <li><a href="profile.php">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+    <script>
+        document.querySelector(".hamburger").addEventListener('click', function() {
+            document.querySelector(".nav-bar").classList.toggle("active");
+        });
+    </script>
+
+    <section class="cover">
+    </section>
+
+    <p class="heading" style="margin: 20px;">Contact Us</p>
+
+    <!-- Display success or error message from session -->
+    <?php
+    if (isset($_SESSION['feedback_status'])) {
+        // Display feedback status message
+        // echo "<p class='feedback-status'>" . $_SESSION['feedback_status'] . "</p>";
+        unset($_SESSION['feedback_status']); // Clear the session message after displaying
+
+        // Redirect using JavaScript location.href
+        echo "<script>setTimeout(function() { window.location.href = 'feedback.html'; }, 1500);</script>";
+    }
+    ?>
+
+    <div class="contact-form">
+        <form action="" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            <br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            <br>
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+            <br>
+            <input type="submit" value="Send" name="send">
+        </form>
+    </div>
+
+    <div class="contact-info" style="padding: 10px;">
+        <p>Email: tabletogether@gmail.com</p>
+        <p>Phone: 7845406646</p>
+        <p>Address: sdnb vaishnav College</p>
+    </div>
+
+    <div class="chatbot">
+        <p style="font-size: 23px; text-align: center;">Chat Bot Support <img src="bot-mini.png" alt="" height="20"></p>
+
+        <div id="container" class="container">
+            <div id="chat" class="chat">
+                <div id="messages" class="messages"></div>
+                <input id="input" type="text" placeholder="Say something..." autocomplete="off" />
+            </div>
+        </div>
+
+        <div class="help">
+            <p style="font-size: 23px; text-align: center; padding: 10px;">Help & FAQs?</p>
+
+            <button class="accordion">How will my donation be used?</button>
+            <div class="panel">
+                <p style="padding: 10px;">Your donation will be used to support our mission and the various programs and initiatives that we have in place. Your donation will help us to continue providing assistance and support to those in need. You can find more information about our programs and initiatives on our website. If you have any specific questions or concerns, please feel free to contact us.</p>
+            </div>
+
+            <button class="accordion">What should I do if my food donation is near or past its expiration date?</button>
+            <div class="panel">
+                <p style="padding: 10px;">We appreciate your willingness to donate, but to ensure the safety of our clients we can't accept food that is near or past its expiration date. We recommend checking expiration dates before making a donation or contact us for further guidance.</p>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="chatbot/chatbot.js"></script>
+    <script type="text/javascript" src="chatbot/constants.js"></script>
+    <script type="text/javascript" src="chatbot/speech.js"></script>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                    panel.style.maxHeight = null;
+                } else {
+                    panel.style.maxHeight = panel.scrollHeight + "px";
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
