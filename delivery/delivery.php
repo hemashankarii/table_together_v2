@@ -204,7 +204,7 @@ if (isset($_POST['food']) && isset($_POST['delivery_person_id'])) {
                     <form method="post" action=" ">
                         <input type="hidden" name="order_id" value="<?= $row['Fid'] ?>">
                         <input type="hidden" name="delivery_person_id" value="<?= $id ?>">
-                        <button type="submit" name="food" style="background-color:#3d550c" >Take order</button>
+                        <button type="submit" name="food" style="background-color:#3d550c" onclick="alert('Order received, please check my orders for location details')">Take order</button>
                     </form>
                 <?php } else if ($row['delivery_by'] == $id) { ?>
                     Order assigned to you

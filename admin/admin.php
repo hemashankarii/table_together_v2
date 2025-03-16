@@ -113,12 +113,13 @@ if($_SESSION['name']==''){
         <div class="dash-content">
             <div class="overview">
                 <div class="title">
-                    <i class="uil uil-tachometer-fast-alt"></i>
+                <i class="uil uil-tachometer-fast-alt" style="color: white;"></i>
                     <span class="text">Dashboard</span>
                 </div>
 
                 <div class="boxes">
-                    <div class="box box1">
+                <div class="box box1" style="background-color: #2E8B57;">
+
                         <i class="uil uil-user"></i>
                         <!-- <i class="fa-solid fa-user"></i> -->
                         <span class="text">Total users</span>
@@ -130,7 +131,7 @@ if($_SESSION['name']==''){
                         ?>
                         <!-- <span class="number">50,120</span> -->
                     </div>
-                    <div class="box box2">
+                    <div class="box box2" style="background-color: #A2B86C;">
                         <i class="uil uil-comments"></i>
                         <span class="text">Feedbacks</span>
                         <?php
@@ -141,7 +142,7 @@ if($_SESSION['name']==''){
                         ?>
                         <!-- <span class="number">20,120</span> -->
                     </div>
-                    <div class="box box3">
+                    <div class="box box3" style="background-color: #6B8E23;">
                         <i class="uil uil-heart"></i>
                         <span class="text">Total doantes</span>
                         <?php
@@ -252,7 +253,7 @@ if (isset($_POST['food']) && isset($_POST['delivery_person_id'])) {
                     <form method="post" action=" ">
                         <input type="hidden" name="order_id" value="<?= $row['Fid'] ?>">
                         <input type="hidden" name="delivery_person_id" value="<?= $id ?>">
-                        <button type="submit" style="background-color:#3d550c" name="food">Get Food</button>
+                        <button type="submit" style="background-color:#3d550c" name="food" onclick="alert('Your order is received, Our delivery partner will be delivering the order to you shortly!')">Get Food</button>
                     </form>
                 <?php } else if ($row['assigned_to'] == $id) { ?>
                     Order assigned to you

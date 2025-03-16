@@ -2,49 +2,70 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="home.css">
-</head>
-<body>
+    <title>Thank You</title>
     <style>
-        .itm{
+        body {
+            font-family: Arial, sans-serif;
             background-color: white;
-            display: grid;
+            color: #3d550c;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
         }
-        .itm img{
-            margin-left: auto;
-            margin-right: auto;
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            text-align: center;
+            color: #3d550c;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        p{
-            text-align: center; font-size: 30PX;color: black; margin-top: 50px;
+        .container img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
         }
-        a{
-            text-decoration: underline;
+        h1 {
+            color: #3d550c;
+            margin-bottom: 15px;
         }
-        @media (max-width: 767px) {
-            .itm{
-                /* float: left; */
-                
-            }
+        p {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3d550c;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        a:hover {
+            background-color: #2a3b07;
         }
     </style>
-
-        <div class="itm" >
-
-            <!-- <p class="heading">We will reach soon</p> -->
-            <p>Your donation will be immediately collected and sent to needy people </p>
-            <p>Thank you for your contribution on saving this environment!!!</p>
-            <p>It means a lot💞 </p>
-            <img src="img/thankyou.gif" alt="" width="400" height="400"> 
-          
-            <!-- <p>Thanks for donating <a href="home.html"></a></p> -->
-          <p style="text-align: center;"><a href="home.html">Return to home page</a></p>
-           
-        </div>
-        <br>
-     
+</head>
+<body>
+    <div class="container">
+        <img src="img/green.gif" alt="we appreciate you">
+        <h1>Thank You for Your donation!</h1>
+        <h2>Our delivery partner will be here soon to pick up the food.</h2>
+        <?php if(isset($_SESSION['feedback_status'])): ?>
+            <p><?php echo $_SESSION['feedback_status']; unset($_SESSION['feedback_status']); ?></p>
+        <?php endif; ?>
+        <a href="contact.html">Go Back</a>
+    </div>
+</body>
+</html>
         
 
    

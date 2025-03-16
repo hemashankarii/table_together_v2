@@ -40,7 +40,7 @@ if($_SESSION['name']==''){
                 <!--<img src="images/logo.png" alt="">-->
             </div>
 
-            <span class="logo_name">ADMIN</span>
+            <span class="logo_name">CHARITY</span>
         </div>
 
         <div class="menu-items">

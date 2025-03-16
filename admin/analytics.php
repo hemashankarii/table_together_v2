@@ -43,7 +43,7 @@ if($_SESSION['name']==''){
                 <!--<img src="images/logo.png" alt="">-->
             </div>
 
-            <span class="logo_name">ADMIN</span>
+            <span class="logo_name">CHARITY</span>
         </div>
 
         <div class="menu-items">
@@ -121,7 +121,7 @@ if($_SESSION['name']==''){
                 </div>
 
                 <div class="boxes">
-                    <div class="box box1">
+                    <div class="box box1"  style="background-color: #2E8B57;">
                         <i class="uil uil-user"></i>
                         <!-- <i class="fa-solid fa-user"></i> -->
                         <span class="text">Total users</span>
@@ -133,7 +133,7 @@ if($_SESSION['name']==''){
                         ?>
                         <!-- <span class="number">50,120</span> -->
                     </div>
-                    <div class="box box2">
+                    <div class="box box2"  style="background-color:  #A2B86C;">
                         <i class="uil uil-comments"></i>
                         <span class="text">Feedbacks</span>
                         <?php
@@ -144,7 +144,7 @@ if($_SESSION['name']==''){
                         ?>
                         <!-- <span class="number">20,120</span> -->
                     </div>
-                    <div class="box box3">
+                    <div class="box box3"  style="background-color:#6B8E23;">
                         <i class="uil uil-heart"></i>
                         <span class="text">Total donates</span>
                         <?php
